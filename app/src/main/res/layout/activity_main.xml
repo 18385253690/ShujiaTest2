@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.liuyueyue.shujiatest.MainActivity">
+
+    <com.example.liuyueyue.shujiatest.MarqueeText
+        android:id="@+id/textview1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Hello_world"
+        android:singleLine="true"
+        android:ellipsize="marquee"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+         />
+
+    <com.example.liuyueyue.shujiatest.MarqueeText
+        android:layout_below="@id/textview1"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Hello_world"
+        android:singleLine="true"
+        android:ellipsize="marquee"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        />
+    <AutoCompleteTextView
+        android:id="@+id/autoCompleteTextView1"
+        android:hint="请输入你要搜索的内容"
+        android:completionThreshold="2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <MultiAutoCompleteTextView
+        android:hint="请输入你的收件人"
+        android:id="@+id/MultiautoCompleteTextView1"
+        android:completionThreshold="2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <ToggleButton
+        android:id="@+id/toggleButto1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:textOff="关闭"
+        android:textOn="打开"/>
+
+    <ImageView
+        android:id="@+id/imageview1"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:background="@drawable/guan"
+        />
+    <CheckBox
+    android:id="@+id/checkbox1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:checked="false"
+    android:text="已婚"/>
+
+    <CheckBox
+        android:id="@+id/checkbox2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="false"
+        android:text="未婚"/>
+<RadioGroup
+    android:orientation="horizontal"
+    android:id="@+id/radioGroup1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+<RadioButton
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/radio0"
+    android:checked="true"
+    android:text="男"/>
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/radio1"
+        android:text="女"/>
+
+</RadioGroup>
+
+</LinearLayout>
