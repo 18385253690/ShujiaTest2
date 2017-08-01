@@ -2,13 +2,14 @@ package com.example.liuyueyue.shujiatest;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.widget.TextView;
 
 
 /**
  * Created by liuyueyue on 2017/7/10.
  */
 
-public class MarqueeText extends android.support.v7.widget.AppCompatTextView{
+public class MarqueeText extends android.support.v7.widget.AppCompatTextView {
 
 
     public MarqueeText(Context context) {

@@ -1,4 +1,7 @@
 package com.example.liuyueyue.shujiatest;
+import android.os.PersistableBundle;
+import android.support.annotation.IdRes;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,14 +12,20 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.MultiAutoCompleteTextView;
+import android.widget.RadioGroup;
+import android.widget.Toast;
 import android.widget.ToggleButton;
-public class MainActivity extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener{
+
+import static android.icu.lang.UCharacter.GraphemeClusterBreak.T;
+
+public class MainActivity extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener,RadioGroup.OnCheckedChangeListener{
     private AutoCompleteTextView acTextView;
     private MultiAutoCompleteTextView macTextView;
     private String[] res = {"beijing1","beijing2","android3","android4"};
     private ToggleButton tb;
     private ImageView img;
     private CheckBox checkbox;
+    private RadioGroup rg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +54,8 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
         img = (ImageView) findViewById(R.id.imageview1);
        /* tb.setOnCheckedChangeListener(this);*/
        tb.setOnCheckedChangeListener(this);
+        rg = (RadioGroup) findViewById(R.id.radioGroup1);
+        rg.setOnCheckedChangeListener(this);
     }
 //当tb被点击的时候，该方法会执行
     public void onCheckedChanged(CompoundButton buttonview,boolean isChecked){
@@ -55,7 +66,7 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
         checkbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                //通过onCheckedChanged来舰艇当前CheckBox是否被选中
+                //通过onCheckedChanged来监听当前CheckBox是否被选中
                 if(isChecked){
                     //获得CheckBox文本内容
                     String text =checkbox.getText().toString();
@@ -69,7 +80,7 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
         checkbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                //通过onCheckedChanged来舰艇当前CheckBox是否被选中
+                //通过onCheckedChanged来监听当前CheckBox是否被选中
                 if(isChecked){
                     //获得CheckBox文本内容
                     String text =checkbox.getText().toString();
@@ -83,5 +94,21 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
+    }
+
+    @Override
+    public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
+        switch (checkedId){
+            case R.id.radio0:
+                Log.i("tag","你当前是一个男孩");
+                Toast.makeText(this,"你当前是"+checkedId+"孩子",Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.radio1:
+                Log.i("tag","你当前是一个女孩");
+                Toast.makeText(this,"你当前是"+checkedId+"孩子",Toast.LENGTH_SHORT).show();
+                break;
+            default:
+                break;
+        }
     }
 }
